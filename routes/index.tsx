@@ -31,168 +31,161 @@ export default function Home({ data }: PageProps<HomePageData>) {
   const latestMovies = movies.slice(0, 6);
 
   return (
-    <div class="min-h-screen bg-gray-900">
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       <Header currentUser={currentUser} />
       
       {/* Hero Section */}
       <Hero featuredMovies={featuredMovies} />
       
-      {/* Latest Movies Section */}
-      <section class="py-16 bg-gray-900">
-        <div class="container mx-auto px-4">
-          <div class="flex items-center mb-8">
-            <div class="w-1 h-8 bg-red-600 mr-4"></div>
-            <h2 class="text-3xl font-bold text-white">Latest Movies</h2>
+      {/* Latest Movies Section - Ultra Enhanced */}
+      <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 25% 25%, rgba(220, 38, 38, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+          {/* Section Header with Modern Design */}
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 rounded-full mb-6 shadow-lg shadow-red-500/30 border border-red-400/30">
+              <span class="text-white font-bold text-lg tracking-wide">🎬 LATEST RELEASES</span>
+            </div>
+            <h2 class="text-5xl lg:text-6xl font-black text-white mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              Trending Movies
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Discover the hottest blockbusters and critically acclaimed films playing now in premium quality
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-red-700 rounded-full mx-auto mt-6"></div>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {latestMovies.map((movie) => (
-              <MovieCard key={movie.movie_id} movie={movie} />
+          {/* Enhanced Movie Grid */}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {latestMovies.map((movie, index) => (
+              <div 
+                key={movie.movie_id}
+                class="fade-in-up"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <MovieCard movie={movie} />
+              </div>
             ))}
           </div>
           
-          <div class="text-center mt-12">
+          {/* Enhanced View All Button */}
+          <div class="text-center">
             <a 
               href="/movies"
-              class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors duration-200"
+              class="group relative inline-flex items-center px-12 py-5 bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white text-xl font-bold rounded-2xl hover:from-red-700 hover:via-red-800 hover:to-red-900 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 shadow-2xl hover:shadow-red-500/50 border border-red-400/30"
             >
-              View All Movies
+              <span class="absolute inset-0 bg-gradient-to-r from-red-400 to-red-500 rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></span>
+              <span class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></span>
+              <span class="relative flex items-center space-x-4">
+                <span>Explore All Movies</span>
+                <span class="text-2xl group-hover:rotate-12 transition-transform duration-300">🎬</span>
+                <span class="text-2xl transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+              </span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section class="py-16 bg-black">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white mb-4">Why Choose Flix?</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">
-              Experience the best movie booking platform with premium features and seamless booking experience.
+      {/* Features Section - Ultra Enhanced */}
+      <section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-red-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 0s;"></div>
+          <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/8 to-purple-500/8 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+          {/* Section Header */}
+          <div class="text-center mb-16">
+            <h2 class="text-5xl lg:text-6xl font-black text-white mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              Why Choose Flix?
+            </h2>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Experience cinema like never before with our premium features, cutting-edge technology, and unmatched convenience
             </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-700 rounded-full mx-auto mt-6"></div>
           </div>
           
+          {/* Enhanced Features Grid */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl">🎟️</span>
+            
+            {/* Feature 1 - Easy Booking */}
+            <div class="group relative bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center hover:border-red-500/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-red-600/5 via-transparent to-red-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div class="relative z-10">
+                <div class="w-20 h-20 bg-gradient-to-r from-red-600 to-red-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 group-hover:scale-110 transition-all duration-500">
+                  <span class="text-3xl group-hover:scale-110 transition-transform duration-300">🎟️</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">Easy Booking</h3>
+                <p class="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  Book your tickets in just a few clicks with our intuitive interface and lightning-fast checkout process.
+                </p>
               </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Easy Booking</h3>
-              <p class="text-gray-400">Book your tickets in just a few clicks with our intuitive interface.</p>
             </div>
             
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl">🍿</span>
+            {/* Feature 2 - Snacks & Combos */}
+            <div class="group relative bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center hover:border-yellow-500/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/5 via-transparent to-yellow-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div class="relative z-10">
+                <div class="w-20 h-20 bg-gradient-to-r from-yellow-600 to-yellow-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-yellow-500/30 group-hover:shadow-yellow-500/50 group-hover:scale-110 transition-all duration-500">
+                  <span class="text-3xl group-hover:scale-110 transition-transform duration-300">🍿</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300">Snacks & Combos</h3>
+                <p class="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  Pre-order your favorite snacks and drinks. Skip the queues and enjoy fresh treats delivered to your seat.
+                </p>
               </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Snacks & Combos</h3>
-              <p class="text-gray-400">Pre-order your favorite snacks and save time at the theater.</p>
             </div>
             
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl">💳</span>
+            {/* Feature 3 - Secure Payment */}
+            <div class="group relative bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center hover:border-green-500/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-green-600/5 via-transparent to-green-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div class="relative z-10">
+                <div class="w-20 h-20 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30 group-hover:shadow-green-500/50 group-hover:scale-110 transition-all duration-500">
+                  <span class="text-3xl group-hover:scale-110 transition-transform duration-300">💳</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">Secure Payment</h3>
+                <p class="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  Bank-grade security with multiple payment options. Your transactions are protected with end-to-end encryption.
+                </p>
               </div>
-              <h3 class="text-xl font-semibold text-white mb-2">Secure Payment</h3>
-              <p class="text-gray-400">Safe and secure payment processing with multiple payment options.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section class="py-16 bg-gray-900">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white mb-4">Flix Pricing</h2>
-            <p class="text-gray-400">Choose the perfect plan for your movie experience</p>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {/* Basic */}
-            <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
-              <h3 class="text-2xl font-bold text-white mb-4">Basic</h3>
-              <div class="text-4xl font-bold text-white mb-4">Free</div>
-              <ul class="space-y-3 mb-8">
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Movie Booking
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Basic Support
-                </li>
-                <li class="text-gray-500 flex items-center">
-                  <span class="text-red-500 mr-2">✗</span>
-                  Priority Booking
-                </li>
-                <li class="text-gray-500 flex items-center">
-                  <span class="text-red-500 mr-2">✗</span>
-                  Exclusive Shows
-                </li>
-              </ul>
-              <a href="/register" class="block w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded text-center transition-colors">
-                Get Started
-              </a>
-            </div>
-            
-            {/* Premium */}
-            <div class="bg-gray-800 p-8 rounded-lg border-2 border-red-600 relative">
-              <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded text-sm font-semibold">
-                Most Popular
+      {/* Enhanced Stats Section */}
+      <section class="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center group">
+              <div class="text-5xl lg:text-6xl font-black text-white mb-4 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                1M+
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Premium</h3>
-              <div class="text-4xl font-bold text-white mb-1">₹299</div>
-              <div class="text-gray-400 mb-4">/month</div>
-              <ul class="space-y-3 mb-8">
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Everything in Basic
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Priority Booking
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Discounted Tickets
-                </li>
-                <li class="text-gray-500 flex items-center">
-                  <span class="text-red-500 mr-2">✗</span>
-                  Exclusive Shows
-                </li>
-              </ul>
-              <a href="/register" class="block w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded text-center transition-colors">
-                Choose Premium
-              </a>
+              <div class="text-gray-300 font-semibold text-lg">Happy Customers</div>
             </div>
-            
-            {/* VIP */}
-            <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
-              <h3 class="text-2xl font-bold text-white mb-4">VIP</h3>
-              <div class="text-4xl font-bold text-white mb-1">₹599</div>
-              <div class="text-gray-400 mb-4">/month</div>
-              <ul class="space-y-3 mb-8">
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Everything in Premium
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Exclusive Shows
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  VIP Support
-                </li>
-                <li class="text-gray-300 flex items-center">
-                  <span class="text-green-500 mr-2">✓</span>
-                  Free Snacks
-                </li>
-              </ul>
-              <a href="/register" class="block w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded text-center transition-colors">
-                Go VIP
-              </a>
+            <div class="text-center group">
+              <div class="text-5xl lg:text-6xl font-black text-white mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                500+
+              </div>
+              <div class="text-gray-300 font-semibold text-lg">Movies Available</div>
+            </div>
+            <div class="text-center group">
+              <div class="text-5xl lg:text-6xl font-black text-white mb-4 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                50+
+              </div>
+              <div class="text-gray-300 font-semibold text-lg">Cities Covered</div>
+            </div>
+            <div class="text-center group">
+              <div class="text-5xl lg:text-6xl font-black text-white mb-4 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                24/7
+              </div>
+              <div class="text-gray-300 font-semibold text-lg">Customer Support</div>
             </div>
           </div>
         </div>
